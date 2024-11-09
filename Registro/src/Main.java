@@ -4,6 +4,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Registro dados[] = new Registro[100];
 
+
+
+
+
         int escolha;
         do {
             System.out.println("1. Criar Cadastro.");
@@ -15,21 +19,24 @@ public class Main {
 
             switch (escolha) {
                 case 1:
-                    Registro.adicionar(dados, Registro.numPessoas);
+                    Registro.create(dados, Registro.numPessoas);
                     break;
 
                 case 2:
-                    Registro.exibir(dados, Registro.numPessoas);
+                    Registro.list(dados, Registro.numPessoas);
                     break;
 
                 case 3:
+                    Registro.search(dados, Registro.numPessoas);
                     break;
 
                 case 4:
+                    Registro.delete(dados, Registro.numPessoas);
                     break;
 
                 case 5:
-                    break;
+                    System.out.println("Encerrando o programa...");
+                    return;
 
                 default:
                     System.out.println("Opção invalida!");
@@ -39,5 +46,6 @@ public class Main {
 
         } while (5 != escolha);
     }
+
 
 }
