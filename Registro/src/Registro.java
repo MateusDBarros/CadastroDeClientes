@@ -1,8 +1,8 @@
 import java.util.Scanner;
 public class Registro {
-    String name;
-    int age;
-    int id;
+    private String name;
+    private int age;
+    private int id;
     public static int numPessoas = 0;
 
 
@@ -57,8 +57,10 @@ public class Registro {
                 System.out.println("Nome:\t" + dados[i].name);
                 System.out.println("Idade:\t" + dados[i].age);
                 System.out.println();
+                return;
             }
         }
+        System.out.println("Cadastro não encontrado");
     }
 
 
@@ -69,6 +71,7 @@ public class Registro {
         }
 
         String input;
+        char inputchar;
         System.out.printf("Digite o nome do usuario que deseja excluir (digite 'sair' para voltar ao menu anterior): ");
         input = scanner.nextLine();
 
@@ -76,18 +79,21 @@ public class Registro {
             return;
 
         for (int i = 0; i < dados.length; i++) {
-            if (input.equals(dados[i])) {
+            if (input.equals(dados[i].name)) {
                 System.out.printf("Deseja mesmo excluir esse Cadastro (y/n)? ");
-                input = scanner.nextLine();
-                if (input.equals('n'))
+                inputchar = scanner.next().charAt(0);
+                scanner.nextLine();
+                if (inputchar == 'n')
                     return;
 
-                else if (input.equals('y')) {
+                else if (inputchar == 'y') {
                     for (int j = i; j < numPessoas - 1; j++) {
                         dados[j] = dados[j + 1];
                     }
+                    dados[numPessoas - 1] = null;
                     Registro.numPessoas--;
                     System.out.println("Cadastro excluido com sucesso!");
+                    return;
                 }
                 else {
                     System.out.println("Cadastro não encontrado");
