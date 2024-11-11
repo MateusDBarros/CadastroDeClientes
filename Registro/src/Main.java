@@ -1,3 +1,5 @@
+
+//procurar por bugs e verificar o funcionamento do programa
 import  java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
