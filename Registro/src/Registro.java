@@ -1,3 +1,4 @@
+//procurar por bugs e verificar o funcionamento do programa
 import java.util.Scanner;
 public class Registro {
     private String name;
